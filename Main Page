@@ -1,0 +1,154 @@
+<?php 
+require_once(dirname(__FILE__) . '/extlib/vdaemon/vdaemon.php');
+require_once(dirname(__FILE__) . '/extlib/recaptchalib.php');
+require_once(dirname(__FILE__) . '/core/config.php');
+ ?>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<style type="text/css">
+body {
+	background: #e4e4e4;
+}
+
+.form {
+	width: 600px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 45px;
+	border: 1px solid #c2c2c2;
+}
+
+.error {
+    color: #AA0000
+}
+.controlerror {
+    background-color: #ffffdd;
+    border: 1px solid #AA0000;
+}
+
+.input {
+	width: 300px;
+	height: 35px;
+	margin-left: 10px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+}
+a{text-decoration: none;
+}
+div#header{
+    width: 100%;
+    height:50px;
+    background-color: #FF6600;
+}
+
+.logo{
+    float:left;
+    margin-top: 10px;
+    color: #fff;
+}
+.logo a span{
+    font-weight: 300;
+    font-size: 1.5em;
+    color:#fff;
+}
+div#container{
+    width: 100%;
+    margin: 0 auto;
+}
+.sidebar{
+  font-family: "Oswald";
+  width: 200px;
+  height:750px;
+  background-color: #171717;
+  color: #fff;
+  float: left;
+  padding-bottom: 10px;
+}
+ul#nav {
+
+}
+ul#nav li{
+  list-style: none;
+
+}
+ul#nav li a
+{
+  color: #ccc;
+  display: block;
+    padding: 10px;
+  font-size: 1em;
+  border-bottom: 1px solid#0a0a0a;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+ul#nav li a:hover{
+  background-color: #030303;
+  color:#fff;
+  padding-left: 30px;
+}
+ul#nav li a.selected{
+  background-color: #030303;
+  color:#fff;
+}
+.button {
+  font-family: "Oswald";
+  color: #000000;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  width: auto;
+}
+table, th {
+    font-family: "Oswald"
+}
+.datatable{
+  margin-top: 30px;
+}
+</style>
+<title>Clinic Monitor Sytem</title>
+</head>
+    <body>
+      <div id="header"><div class="logo"><a href="https://www.utphysicians.com/"><span>UT Physicians</span></a></div></div>
+        <div id="container">
+            <div class="sidebar">
+                <ul id="nav">
+                    <li><a class= 'selected' href='index.php'>Dashboard</a></li>
+                    <li><a href='test.php'>Account Audits</a></li>
+                    <li><a href='#'>Cash Handling</a></li>
+                    <li><a href='#'>Report an Issue</a></li>
+                </ul>
+            </div>
+			</div>
+
+<div class="form">
+
+<form action="core/process.php" method="post">
+<input type="hidden" name="formID" value="users2" />
+<input type="hidden" name="redirect_to" value="" />
+	<b> Add New Data</b>
+		<p> User Name:
+		<input type="text" name="Username" size="30" value=""</>
+		</p>
+		
+		<p> Action:
+		<input type="text" name="actions" size="30" value=""</>
+		</p>
+		
+		<p>
+		<input type="submit" name="submit" value="send"</>
+		</p>
+
+</form>
+</div>
+</body>
+</html>
