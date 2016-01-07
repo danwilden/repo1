@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>Account Audits</title>
+  <meta name="author" content="Dan Wilden">
+</head>
+<?php 
+require_once(dirname(__FILE__) . '/core/config.php');
+ ?>
+<link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
+<style type="text/css">
+.form-style-10{
+    width:450px;
+    padding:30px;
+    margin:40px auto;
+    background: #FFF;
+    border-radius: 10px;
+    -webkit-border-radius:10px;
+    -moz-border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+    -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.13);
+}
+.form-style-10 .inner-wrap{
+    padding: 30px;
+    background: #F8F8F8;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+.form-style-10 h1{
+    background: #2A88AD;
+    padding: 20px 30px 15px 30px;
+    margin: -30px -30px 30px -30px;
+    border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    -moz-border-radius: 10px 10px 0 0;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+}
+.form-style-10 h1 > span{
+    display: block;
+    margin-top: 2px;
+    font: 13px Arial, Helvetica, sans-serif;
+}
+.form-style-10 label{
+    display: block;
+    font: 13px Arial, Helvetica, sans-serif;
+    color: #888;
+    margin-bottom: 15px;
+}
+.form-style-10 input[type="text"],
+.form-style-10 input[type="date"],
+.form-style-10 input[type="datetime"],
+.form-style-10 input[type="email"],
+.form-style-10 input[type="number"],
+.form-style-10 input[type="search"],
+.form-style-10 input[type="time"],
+.form-style-10 input[type="url"],
+.form-style-10 input[type="password"],
+.form-style-10 textarea,
+.form-style-10 select {
+    display: block;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    border: 2px solid #fff;
+    box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.33);
+}
+
+.form-style-10 .section{
+    font: normal 20px 'Bitter', serif;
+    color: #2A88AD;
+    margin-bottom: 5px;
+}
+.form-style-10 .section span {
+    background: #2A88AD;
+    padding: 5px 10px 5px 10px;
+    position: absolute;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border: 4px solid #fff;
+    font-size: 14px;
+    margin-left: -45px;
+    color: #fff;
+    margin-top: -3px;
+}
+.form-style-10 input[type="button"], 
+.form-style-10 input[type="submit"]{
+    background: #2A88AD;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+    font-size: 15px;
+}
+.form-style-10 input[type="button"]:hover, 
+.form-style-10 input[type="submit"]:hover{
+    background: #2A6881;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
+}
+.form-style-10 .privacy-policy{
+    float: right;
+    width: 250px;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #4D4D4D;
+    margin-top: 10px;
+    text-align: right;
+}
+body {
+	background: #e4e4e4;
+}
+
+.form {
+	width: 600px;
+	margin: 0 auto;
+	background: #fff;
+	padding: 45px;
+	border: 1px solid #c2c2c2;
+}
+
+.error {
+    color: #AA0000
+}
+.controlerror {
+    background-color: #ffffdd;
+    border: 1px solid #AA0000;
+}
+
+.input {
+	width: 300px;
+	height: 35px;
+	margin-left: 10px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+}
+a{text-decoration: none;
+}
+div#header{
+    width: 100%;
+    height:50px;
+    background-color: #FF6600;
+}
+
+.logo{
+    float:left;
+    margin-top: 10px;
+    color: #fff;
+}
+.logo a span{
+    font-weight: 300;
+    font-size: 1.5em;
+    color:#fff;
+}
+div#container{
+    width: 100%;
+    margin: 0 auto;
+}
+.sidebar{
+  font-family: "Oswald";
+  width: 200px;
+  height:750px;
+  background-color: #171717;
+  color: #fff;
+  float: left;
+  padding-bottom: 10px;
+}
+
+ul#nav {
+
+}
+ul#nav li{
+  list-style: none;
+
+}
+ul#nav li a
+{
+  color: #ccc;
+  display: block;
+    padding: 10px;
+  font-size: 1em;
+  border-bottom: 1px solid#0a0a0a;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+ul#nav li a:hover{
+  background-color: #030303;
+  color:#fff;
+  padding-left: 30px;
+}
+ul#nav li a.selected{
+  background-color: #030303;
+  color:#fff;
+}
+.button {
+  font-family: "Oswald";
+  color: #000000;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  width: auto;
+}
+table, th {
+    font-family: "Oswald"
+}
+.datatable{
+  margin-top: 30px;
+}
+</style>
+<body>
+<title>Clinic Monitor Sytem</title>
+</head>
+    <body>
+      <div id="header"><div class="logo"><a href="https://www.utphysicians.com/"><span>UT Physicians</span></a></div></div>
+        <div id="container">
+            <div class="sidebar">
+                <ul id="nav">
+                    <li><a class= 'selected' href='index.php'>Dashboard</a></li>
+                    <li><a href='test.php'>Account Audits</a></li>
+                    <li><a href='#'>Cash Handling</a></li>
+                    <li><a href='#'>Report an Issue</a></li>
+                </ul>
+            </div>
+			</div>
+<div class="form-style-10">
+<h1>Account Audits<span>Compelete a Random Audit of an Account.</span></h1>
+<form action="core/process.php" method="post">
+<input type="hidden" name="formID" value="users4" />
+<input type="hidden" name="redirect_to" value="" />
+    <div class="section"><span>1</span>POA Name &amp; Clinic</div>
+    <div class="inner-wrap">
+        <label>Your Full Name <input type="text" name="POA" /></label>
+        <label>Clinic
+		<select name="Clinic">
+			<option>Clinic...</option>
+				<option>Center for Clinical Neurosciences-TMC</option>
+				<option>Ironman Sports Medicine Institute Memorial City</option>
+				<option>Ironman Sports Medicine Institute Texas Medical Center</option>
+				<option>Ironman Sports Medicine Institute The Woodlands</option>
+				<option>Memorial Hermann Hospital – Radiology</option>
+				<option>Memorial Hermann Transplant Center-TMC</option>
+				<option>Richmond Bone and Joint – Richmond</option>
+				<option>Richmond Bone and Joint Clinic – Katy</option>
+				<option>Richmond Bone and Joint Clinic – Sugar Land</option>
+				<option>Texas Liver Center</option>
+				<option>The Robert Cizik Eye Clinic – TMC</option>
+				<option>UT Physicians Adult Congenital Heart Disease Clinic-TMC</option>
+				<option>UT Physicians Adult Hematology-TMC</option>
+				<option>UT Physicians Adult Neurology-The Woodlands</option>
+				<option>UT Physicians Advanced Heart Failure and Transplant Cardiology Clinic-TMC</option>
+				<option>UT Physicians at Sienna Village</option>
+				<option>UT Physicians at The Heights</option>
+				<option>UT Physicians Bay Area Pediatric Associates</option>
+				<option>UT Physicians Bayshore Family Practice Center</option>
+				<option>UT Physicians Bayshore Multispecialty Clinic</option>
+				<option>UT Physicians Cardiology-Bellaire</option>
+				<option>UT Physicians Cardiology-Southeast</option>
+				<option>UT Physicians Cardiology-TMC</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery – Northeast</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery Clinic-TMC</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery II-Southeast</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery I-Southeast</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery-Memorial City</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery-St. Joseph</option>
+				<option>UT Physicians Cardiothoracic and Vascular Surgery-Webster</option>
+				<option>UT Physicians CARE Clinic – TMC</option>
+				<option>UT Physicians Center for Healthy Aging-Bellaire</option>
+				<option>UT Physicians Center for Obesity Medicine and Metabolic Performance (COMMP)</option>
+				<option>UT Physicians Colon and Rectal Clinic – Texas Medical Center</option>
+				<option>UT Physicians Colon and Rectal Clinic at Katy</option>
+				<option>UT Physicians Colon and Rectal Clinic at Memorial City</option>
+				<option>UT Physicians Colon and Rectal Clinic at Peakwood</option>
+				<option>UT Physicians Colon and Rectal Clinic at Southeast Houston</option>
+				<option>UT Physicians Colon and Rectal Clinic at Sugar Land</option>
+				<option>UT Physicians Colon and Rectal Clinic at The Woodlands</option>
+				<option>UT Physicians Community Health & Wellness Center – Southwest</option>
+				<option>UT Physicians Comprehensive Sickle Cell Center</option>
+				<option>UT Physicians Dashwood Multispecialty Clinic</option>
+				<option>UT Physicians Davis Clinic</option>
+				<option>UT Physicians Dermatology-TMC</option>
+				<option>UT Physicians Electrophysiology Clinic – Southeast</option>
+				<option>UT Physicians EP Heart – Cinco Ranch</option>
+				<option>UT Physicians EP Heart – Complex Arrhythmia Center</option>
+				<option>UT Physicians EP Heart – Conroe</option>
+				<option>UT Physicians EP Heart – Huntsville</option>
+				<option>UT Physicians EP Heart – Memorial City</option>
+				<option>UT Physicians EP Heart – Sugar Land</option>
+				<option>UT Physicians EP Heart – The Woodlands</option>
+				<option>UT Physicians EP Heart – Vintage Park</option>
+				<option>UT Physicians EP Heart – Webster</option>
+				<option>UT Physicians Ertan Digestive Disease Center</option>
+				<option>UT Physicians Family Medicine-TMC</option>
+				<option>UT Physicians General Surgery-Sugar Land</option>
+				<option>UT Physicians General Surgery-TMC</option>
+				<option>UT Physicians Greens Clinic</option>
+				<option>UT Physicians Gulf States Hemophilia and Thrombophilia Center-TMC</option>
+				<option>UT Physicians Gynecologic Oncology – Memorial City</option>
+				<option>UT Physicians Gynecologic Oncology Clinic-Southeast</option>
+				<option>UT Physicians Health Center at Bellaire</option>
+				<option>UT Physicians Health Center-Cinco Ranch</option>
+				<option>UT Physicians High Risk Children’s Clinic</option>
+				<option>UT Physicians High Risk Pregnancy Unit-St. Joseph Hospital</option>
+				<option>UT Physicians Hillcroft Medical Clinic-Southwest</option>
+				<option>UT Physicians Infectious Diseases Clinic-TMC</option>
+				<option>UT Physicians Internal Medicine-TMC</option>
+				<option>UT Physicians Maternal & Fetal Treatment-TMC</option>
+				<option>UT Physicians Minimally Invasive Surgeons of Texas (UTMIST)</option>
+				<option>UT Physicians Movement Disorders and Neurodegenerative Diseases-TMC</option>
+				<option>UT Physicians Neonatal High Risk Clinic</option>
+				<option>UT Physicians Neurocognitive Center – Memory Disorders and Dementia Clinic</option>
+				<option>UT Physicians Neurology Movement Disorders-The Woodlands</option>
+				<option>UT Physicians Neurology-TMC</option>
+				<option>UT Physicians Neuropsychology and Sports Concussion Program-TMC</option>
+				<option>UT Physicians Neurosurgery – Southeast</option>
+				<option>UT Physicians Neurosurgery – TMC</option>
+				<option>UT Physicians Oncology-Memorial Hermann Northeast</option>
+				<option>UT Physicians Oncology-TMC</option>
+				<option>UT Physicians Oral and Maxillofacial Surgery-TMC</option>
+				<option>UT Physicians Orthopedic Memorial Westside</option>
+				<option>UT Physicians Orthopedic Trauma Clinic</option>
+				<option>UT Physicians Orthopedics – Katy</option>
+				<option>UT Physicians Orthopedics – Northeast</option>
+				<option>UT Physicians Orthopedics at Convenient Care Center Summer Creek</option>
+				<option>UT Physicians Orthopedics at Memorial Hermann Orthopedic and Spine Hospital</option>
+				<option>UT Physicians Orthopedics Bellaire</option>
+				<option>UT Physicians Orthopedics Binz</option>
+				<option>UT Physicians Orthopedics Greater Heights</option>
+				<option>UT Physicians Orthopedics Southeast</option>
+				<option>UT Physicians Orthopedics Southwest</option>
+				<option>UT Physicians Orthopedics-Pearland</option>
+				<option>UT Physicians Orthopedics-Sugar Land</option>
+				<option>UT Physicians Otorhinolaryngology – Bellaire</option>
+				<option>UT Physicians Otorhinolaryngology – Southeast</option>
+				<option>UT Physicians Otorhinolaryngology – The Woodlands</option>
+				<option>UT Physicians Otorhinolaryngology – TMC</option>
+				<option>UT Physicians Pediatric Autism at TMC</option>
+				<option>UT Physicians Pediatric Cardiology at TMC</option>
+				<option>UT Physicians Pediatric Center at Cinco Ranch</option>
+				<option>UT Physicians Pediatric Center at Memorial City</option>
+				<option>UT Physicians Pediatric Clinic – The Woodlands</option>
+				<option>UT Physicians Pediatric Neurology at TMC</option>
+				<option>UT Physicians Pediatric Orthopedics-TMC</option>
+				<option>UT Physicians Pediatric Primary Care at Dashwood</option>
+				<option>UT Physicians Pediatric Primary Care at Texas Medical Center</option>
+				<option>UT Physicians Pediatric Specialists at Texas Medical Center</option>
+				<option>UT Physicians Pediatric Surgery Clinic-TMC</option>
+				<option>UT Physicians Pediatric Teen Clinic at Dashwood</option>
+				<option>UT Physicians Physical Medicine and Rehabilitation – TIRR Memorial Hermann</option>
+				<option>UT Physicians Preop Clinic – TMC</option>
+				<option>UT Physicians Primary Care at Smith Tower-TMC</option>
+				<option>UT Physicians Psychiatry Outpatient Clinic-BBSB</option>
+				<option>UT Physicians Pulmonary Medicine-TMC</option>
+				<option>UT Physicians Renal Disease and Hypertension-TMC</option>
+				<option>UT Physicians Rheumatology-TMC</option>
+				<option>UT Physicians Sleep Medicine Clinic – TIRR Memorial Hermann</option>
+				<option>UT Physicians Sports Medicine & Rehabilitation-West</option>
+				<option>UT Physicians Urogynecology Center – Memorial City</option>
+				<option>UT Physicians Urogynecology Center – Sugar Land</option>
+				<option>UT Physicians Urology-TMC</option>
+				<option>UT Physicians Women’s Center – Memorial City</option>
+				<option>UT Physicians Women’s Center – Sugar Land</option>
+				<option>UT Physicians Women’s Center-Bellaire</option>
+				<option>UT Physicians Women’s Center-TMC</option>
+				<option>UT Physicians-Bellaire Family Medicine</option>
+			</select>
+		</label>
+    </div>
+
+    <div class="section"><span>2</span>Date &amp; MRN</div>
+    <div class="inner-wrap">
+        <label>Visit Date<input type="date" name="DateofVisit" /></label>
+        <label>Medical Record Number <input type="text" name="MRN" /></label>
+    </div>
+
+    <div class="section"><span>3</span>Account Audit</div>
+        <div class="inner-wrap">
+        <label>Insurance Verified:
+		<select name = "InsuranceVerified" onchange="showfield(this.options[this.selectedIndex].value)">
+        <option>Pass</option>
+        <option value="Fail">Fail</option>
+      </select>
+	  <div id="div1" name="FailReasonINS"></div>
+		</label>
+		<label>Time of Service Payment Collected
+		<select name = "TOSpayment" onchange="showfield1(this.options[this.selectedIndex].value)">
+        <option>Pass</option>
+        <option value="Fail">Fail</option>
+      </select>
+	  <div id="div2" name="FailReasonTOS"></div>
+		</label>
+		<label>Appointment Documented
+		<select name = "Documentation" onchange="showfield2(this.options[this.selectedIndex].value)">
+        <option>Pass</option>
+        <option value="Fail">Fail</option>
+      </select>
+	  <div id="div3" name="FailReasonDoc"> </div>
+		</label>
+    </div>
+    <div class="button-section">
+     <input type="submit" name="Submit" value="Submit"/>
+    </div>
+</form>
+</div>
+<script type="text/javascript">
+function showfield(name){
+  if(name=='Fail')document.getElementById('div1').innerHTML='Failure: <input type="text" name="other" />';
+  else document.getElementById('div1').innerHTML='';
+}
+function showfield1(name){
+  if(name=='Fail')document.getElementById('div2').innerHTML='Failure: <input type="text" name="other" />';
+  else document.getElementById('div2').innerHTML='';
+}
+function showfield2(name){
+  if(name=='Fail')document.getElementById('div3').innerHTML='Failure: <input type="text" name="other" />';
+  else document.getElementById('div3').innerHTML='';
+}
+</script>
+</body>
